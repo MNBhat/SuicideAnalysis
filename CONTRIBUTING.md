@@ -8,7 +8,7 @@ helps, and credit will always be given.
 
 ### Report Bugs
 
-The best way to report a bug is to create an issue at : https://github.com/MNBhat/BookRecom/issues
+The best way to report a bug is to create an issue at : https://github.com/MNBhat/SuicideAnalysis/issues
 
 If you are reporting a bug, please include:
 
@@ -18,12 +18,12 @@ If you are reporting a bug, please include:
 
 ### Fix Bugs
 
-Look through the [GitHub issues](https://github.com/MNBhat/BookRecom/issues) for bugs. Anything tagged with "bug" and "help
+Look through the [GitHub issues](https://github.com/MNBhat/SuicideAnalysis/issues) for bugs. Anything tagged with "bug" and "help
 wanted" is open to whoever wants to implement it.
 
 ### Implement Features
 
-Look through the [GitHub issues](https://github.com/MNBhat/BookRecom/issues) for features. Anything tagged with "enhancement"
+Look through the [GitHub issues](https://github.com/MNBhat/SuicideAnalysis/issues) for features. Anything tagged with "enhancement"
 and "help wanted" is open to whoever wants to implement it.
 
 ### Write Documentation
@@ -34,7 +34,7 @@ on the web in blog posts, articles, and such.
 
 ### Submit Feedback
 
-The best way to send feature is to create an issue at : https://github.com/MNBhat/BookRecom/issues
+The best way to send feature is to create an issue at : https://github.com/MNBhat/SuicideAnalysis/issues
 
 If you are proposing a feature:
 
@@ -47,13 +47,13 @@ If you are proposing a feature:
 
 Ready to contribute? Here's how to set up `BookRecom` for local development.
 
-1. Fork the `BookRecom` repo on GitHub.
+1. Fork the `SuicideAnalysis` repo on GitHub.
 
 
 2. Clone your fork locally:
 
     ``` console 
-    $ git clone git@github.com:your_name_here/BookRecom.git
+    $ git clone git@github.com:your_name_here/SuicideAnalysis.git
     ```
 
 
