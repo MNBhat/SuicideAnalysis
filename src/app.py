@@ -1,14 +1,14 @@
 from dash import dash, dcc, html, Input, Output,dash_table
 import dash_bootstrap_components as dbc
-from vega_datasets import data
 import pandas as pd 
 import altair as alt 
 
 alt.data_transformers.enable('data_server')
-suicide = pd.read_csv("master.csv")
+suicide = pd.read_csv("data/master.csv")
 
 def get_data(country_selected):
-    suicide = pd.read_csv("master.csv")
+
+    # suicide = pd.read_csv("data/master.csv")
     if not country_selected : 
         return suicide
     else :
