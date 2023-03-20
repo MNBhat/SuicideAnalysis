@@ -26,13 +26,13 @@ def get_age(country):
         title_graph = "The suicide rate by age Worldwide"
     else : 
          title_graph = "The suicide rate by age in " +  country
-    chart_graph = alt.Chart(data,width = 700, height = 400, title =title_graph).mark_line(point=True).encode(
+    chart_graph = alt.Chart(data,width = 700, height = 350, title =title_graph).mark_line(point=True).encode(
     x=alt.X('year(year):T' , axis=alt.Axis(grid=False)),
     y=alt.Y('suicides/100k pop', title='Suicides per 100k people'),
     tooltip=['age','suicides/100k pop'], 
     color = "age"
     )
-    bar = alt.Chart(data,width = 700, height = 400).mark_bar().encode(
+    bar = alt.Chart(data,width = 700, height = 300).mark_bar().encode(
             x=alt.X('sum(suicides/100k pop)', title = 'Sum of Suicide per 100k'),
             y=alt.Y('age', sort = 'x', title ="Age"),
             color = 'age',
@@ -50,7 +50,7 @@ def get_gender(country) :
         title_graph = "The suicide rate by gender Worldwide"
     else : 
          title_graph = "The suicide rate by gender in " +  country
-    chart_graph = alt.Chart(data, width = 700, height = 400, title = title_graph).mark_line(point=True).encode(
+    chart_graph = alt.Chart(data, width = 700, height = 300, title = title_graph).mark_line(point=True).encode(
     x=alt.X('year(year):T', axis=alt.Axis(grid=False) , title ='Year'),
     y=alt.Y('suicides/100k pop', title='Suicides per 100k people'),
     tooltip=['sex','suicides/100k pop'], 
@@ -58,7 +58,7 @@ def get_gender(country) :
     ) 
     bar = alt.Chart(data,width = 700, height = 200).mark_bar().encode(
             x=alt.X( 'sum(suicides/100k pop)' , title = 'Sum of Suicide per 100k'),
-            y=alt.Y('sex',sort = 'x', title ='Age'),
+            y=alt.Y('sex',sort = 'x', title ='Gender'),
             color = 'sex',
             tooltip ='sum(suicides/100k pop)'
         )
