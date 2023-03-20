@@ -3,8 +3,9 @@ import dash_bootstrap_components as dbc
 import pandas as pd 
 import altair as alt 
 
-alt.data_transformers.enable('data_server')
+# alt.data_transformers.enable('data_server')
 suicide = pd.read_csv("data/master.csv")
+suicide = suicide[suicide["year"]> 2005 ][:5000]
 
 def get_data(country_selected):
 
@@ -26,7 +27,7 @@ def get_age(country):
     else : 
          title_graph = "The suicide rate by age in " +  country
     chart_graph = alt.Chart(data,width = 700, height = 400, title =title_graph).mark_line(point=True).encode(
-    x=alt.X('year(year):T', scale=alt.Scale(domain=[1984, 2018]) , axis=alt.Axis(grid=False)),
+    x=alt.X('year(year):T' , axis=alt.Axis(grid=False)),
     y=alt.Y('suicides/100k pop', title='Suicides per 100k people'),
     tooltip=['age','suicides/100k pop'], 
     color = "age"
@@ -50,7 +51,7 @@ def get_gender(country) :
     else : 
          title_graph = "The suicide rate by gender in " +  country
     chart_graph = alt.Chart(data, width = 700, height = 400, title = title_graph).mark_line(point=True).encode(
-    x=alt.X('year(year):T', scale=alt.Scale(domain=[1984, 2018]), axis=alt.Axis(grid=False) , title ='Year'),
+    x=alt.X('year(year):T', axis=alt.Axis(grid=False) , title ='Year'),
     y=alt.Y('suicides/100k pop', title='Suicides per 100k people'),
     tooltip=['sex','suicides/100k pop'], 
     color = "sex"
@@ -77,7 +78,7 @@ def get_gdp(country) :
     x=alt.X('gdp_per_capita ($)' , axis=alt.Axis(grid=False), title ='Gdp Per capita ($)'),
     y=alt.Y('suicides/100k pop', title='Suicides per 100k people '),
     tooltip=['gdp_per_capita ($)','suicides/100k pop','year(year):T'], 
-    color = alt.Color("year(year):T",scale=alt.Scale(scheme='viridis'), title = 'Year')
+    color = alt.Color("year(year):T", title = 'Year')
     )
     # bar = alt.Chart(data,width = 600, height = 400).mark_bar().encode(
     #         x='sum(suicides/100k pop)',
@@ -168,7 +169,7 @@ def plot_altair(grouped, country):
         else : 
              title_graph = "The suicide rate  in " +  country
         chart = alt.Chart(data, width = 700, height = 400, title =title_graph).mark_line(point=True).encode(
-        x=alt.X('year(year):T',scale=alt.Scale(domain=[1984, 2018]) , axis=alt.Axis(grid=False), title ='Year'),
+        x=alt.X('year(year):T' , axis=alt.Axis(grid=False), title ='Year'),
         y=alt.Y('suicides/100k pop', title='Suicides per 100k person ', scale=alt.Scale(zero=False)),
         tooltip='suicides/100k pop'
         )
