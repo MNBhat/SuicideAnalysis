@@ -6,7 +6,7 @@ import altair as alt
 # alt.data_transformers.enable('data_server')
 suicide = pd.read_csv(r'../data/master.csv')
 # suicide = pd.read_csv('data/master.csv')
-suicide = suicide[suicide["year"]> 2005 ][:5000]
+suicide = suicide[suicide["year"]> 2005 ]
 
 def get_data(country_selected):
 
