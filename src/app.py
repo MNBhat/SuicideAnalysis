@@ -6,7 +6,7 @@ import altair as alt
 # alt.data_transformers.enable('data_server')
 suicide = pd.read_csv(r'../data/master.csv')
 # suicide = pd.read_csv('data/master.csv')
-suicide = suicide[suicide["year"]> 2005 ][:5000]
+suicide = suicide[suicide["year"]> 2005 ][:8000]
 
 def get_data(country_selected):
 
@@ -94,7 +94,7 @@ app = dash.Dash(external_stylesheets=[dbc.themes.BOOTSTRAP])
 
 
 app.layout = html.Div([
-            html.Br(),
+            
             dbc.Row([
       dbc.Col([
             # dbc.Jumbotron(dbc.Container(html.H1('Layout demo', className='display-3'), fluid=True), fluid=True),
@@ -108,8 +108,8 @@ app.layout = html.Div([
                     'margin-left':15,
                     'text-align': 'center',
                     'font-size': '36px',
-                    'border-radius': 3
-                    })])]),
+                    'border-radius': 1
+                    })],width = 12)]),
          dbc.Row([ 
          dbc.Col([
             html.H5('Global Options'),
@@ -130,11 +130,12 @@ app.layout = html.Div([
                 'background-color': '#e6e6e6',
                 'padding': 20,
                 'border-radius': 3,
-                'margin-left':30}),
+                'margin-left':30
+                }),
     
-            dbc.Col([html.Br(),html.Br(),html.Iframe(
+            dbc.Col([html.Br(),html.Iframe(
             id='Plot',
-            style={'border-width': '0', 'width': '100%', 'height': '500px'})], width={"offset": 0.5})
+            style={ 'width': '90%', 'height': '500px'})])
             ])
             
             ])
@@ -170,11 +171,26 @@ def plot_altair(grouped, country):
             title_graph = "The suicide rate  Worldwide"
         else : 
              title_graph = "The suicide rate  in " +  country
-        chart = alt.Chart(data, width = 700, height = 350, title =title_graph).mark_line(point=True).encode(
+            
+        chart = alt.Chart(data, width = 500, height = 350, title =title_graph).mark_line(point=True).encode(
         x=alt.X('year(year):T' , axis=alt.Axis(grid=False), title ='Year'),
         y=alt.Y('suicides/100k pop', title='Suicides per 100k person ', scale=alt.Scale(zero=False)),
-        tooltip='suicides/100k pop'
-        )
+        tooltip='suicides/100k pop')
+
+        if not country :  
+            data = pd.DataFrame(df.groupby("country")['suicides/100k pop'].mean().round(2).sort_values(ascending=False)[:10])
+            data = data.reset_index()
+            # data['year']  = pd.to_datetime(data['year'], format='%Y')
+            bar = alt.Chart(data,width = 600, height = 400, title = "countries with highest suicide rate (top ten) ").mark_bar().encode(
+            x='sum(suicides/100k pop)',
+            y=alt.Y('country', sort = 'x'),
+            color = alt.Color('country', legend =None),
+            tooltip ='sum(suicides/100k pop)'
+                )
+            chart = chart & bar
+
+        
+        
     
 
 
