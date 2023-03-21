@@ -5,6 +5,7 @@ import altair as alt
 
 # alt.data_transformers.enable('data_server')
 suicide = pd.read_csv(r'../data/master.csv')
+# suicide = pd.read_csv('data/master.csv')
 suicide = suicide[suicide["year"]> 2005 ][:5000]
 
 def get_data(country_selected):
@@ -56,7 +57,7 @@ def get_gender(country) :
     tooltip=['sex','suicides/100k pop'], 
     color = "sex"
     ) 
-    bar = alt.Chart(data,width = 700, height = 200).mark_bar().encode(
+    bar = alt.Chart(data,width = 700, height = 320).mark_bar().encode(
             x=alt.X( 'sum(suicides/100k pop)' , title = 'Sum of Suicide per 100k'),
             y=alt.Y('sex',sort = 'x', title ='Gender'),
             color = 'sex',
@@ -104,10 +105,11 @@ app.layout = html.Div([
                     'color': 'white',
                     #'margin-top': 20,
                     #'margin-bottom': 20,
-                    #'margin-left':15,
+                    'margin-left':15,
                     'text-align': 'center',
                     'font-size': '36px',
-                    'border-radius': 3})])]),
+                    'border-radius': 3
+                    })])]),
          dbc.Row([ 
          dbc.Col([
             html.H5('Global Options'),
@@ -132,7 +134,7 @@ app.layout = html.Div([
     
             dbc.Col([html.Br(),html.Br(),html.Iframe(
             id='Plot',
-            style={'border-width': '0', 'width': '400%', 'height': '600px'})], width={"offset": 1})
+            style={'border-width': '0', 'width': '100%', 'height': '800px'})], width={"offset": 0.5})
             ])
             
             ])
