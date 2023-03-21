@@ -4,8 +4,8 @@ import pandas as pd
 import altair as alt 
 
 # alt.data_transformers.enable('data_server')
-suicide = pd.read_csv(r'../data/master.csv')
-# suicide = pd.read_csv('data/master.csv')
+# suicide = pd.read_csv(r'../data/master.csv')
+suicide = pd.read_csv('data/master.csv')
 suicide = suicide[suicide["year"]> 2005 ][:5000]
 
 def get_data(country_selected):
@@ -134,7 +134,7 @@ app.layout = html.Div([
     
             dbc.Col([html.Br(),html.Br(),html.Iframe(
             id='Plot',
-            style={'border-width': '0', 'width': '100%', 'height': '800px'})], width={"offset": 0.5})
+            style={'border-width': '0', 'width': '100%', 'height': '500px'})], width={"offset": 0.5})
             ])
             
             ])
@@ -170,7 +170,7 @@ def plot_altair(grouped, country):
             title_graph = "The suicide rate  Worldwide"
         else : 
              title_graph = "The suicide rate  in " +  country
-        chart = alt.Chart(data, width = 700, height = 400, title =title_graph).mark_line(point=True).encode(
+        chart = alt.Chart(data, width = 700, height = 350, title =title_graph).mark_line(point=True).encode(
         x=alt.X('year(year):T' , axis=alt.Axis(grid=False), title ='Year'),
         y=alt.Y('suicides/100k pop', title='Suicides per 100k person ', scale=alt.Scale(zero=False)),
         tooltip='suicides/100k pop'
