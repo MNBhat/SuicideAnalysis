@@ -16,7 +16,6 @@
 
 The dash app has been deployed on render.com It can be accessed [here](https://suicideanalysis.onrender.com/).
 
-![](img/demo.gif)
 
 ## Motivation and research questions
 
@@ -73,7 +72,7 @@ conda activate analysis-532
 
 If you are interested in contributing to the app we welcome to share your thoughts. Particularly we would appreciate:
 
--   Additional data. This app is constantly evolving and being updated with new data. If you posses data related to Data Science salaries that can be applied to this Dashboard we would highly appreciate your contribution.
+-   Additional data. This app is constantly evolving and being updated with new data. If you posses data related to suicide or any  mental health crisis that could be applied to this dashboard we would highly appreciate your contribution.
 
 ## Contact us
 
