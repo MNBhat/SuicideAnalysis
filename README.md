@@ -21,7 +21,7 @@ The dash app has been deployed on render.com It can be accessed [here](https://s
 
 Target audience: Our main target audience includes mental heath graduate research students who are interested in root cause of mental health illness including suicide , and is interested in identifying the patterns and trends that can help form effective prevention strategies.
 
-The main research questions addressed by DS-Salaries are:
+The main research questions addressed by Suicide Analysis are:
 
 - Are suicide rates more prevelant in certain age groups? 
 - Is suicide rate in a country impacted by its gdp?
