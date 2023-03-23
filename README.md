@@ -51,14 +51,13 @@ https://github.com/MNBhat/SuicideAnalysis
 2. Install the environment of this project in your terminal at the root directory with the following code:
 
 ```
-conda env create --file analysis.yaml
+conda env create --file analysis-532.yaml
 ```
 
 3. Then, change your environment to this project's environment with the following code:
 
 ```
-conda activate analysis
-
+conda activate analysis-532
 ```
 4.  To run the app locally 
 
