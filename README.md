@@ -82,7 +82,3 @@ If you would like to help with the development of this Dashboard feel free to co
 
 Licensed under the terms of the [MIT license](LICENSE).
 
-
-```python
-
-```
